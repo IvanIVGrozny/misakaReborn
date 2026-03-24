@@ -1379,7 +1379,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"misaka/Preview Content\"";
-				DEVELOPMENT_TEAM = WQL5MJWHM6;
+				DEVELOPMENT_TEAM = P75H6BAC72;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = misaka/Info.plist;
@@ -1403,7 +1403,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = "10.0 Beta";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.straight-tamago.misakaReborn";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.straight-tamago.misakaRebornsigjnf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1421,10 +1421,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"misaka/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = P75H6BAC72;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = misaka/Info.plist;
@@ -1449,7 +1450,7 @@
 				);
 				MARKETING_VERSION = "10.0 Beta";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.straight-tamago.misakaReborn";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.straight-tamago.misakaRebornsigjnf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

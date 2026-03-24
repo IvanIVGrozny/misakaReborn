@@ -54,6 +54,13 @@ struct ToolBox: View {
                             }
                         }
                         .foregroundColor(.primary)
+                        
+                        Section(header: Label(MILocalizedString("Customization"), systemImage: "paintbrush")) {
+                            NavigationLink(destination: FontCustomizationView()) {
+                                Label(MILocalizedString("Font Customization"), systemImage: "textformat")
+                            }
+                        }
+                        .foregroundColor(.primary)
                     }
                     .listRowBackground((colorScheme == .dark ? Color.gray.opacity(0.1) : Color.gray.opacity(0.1)))
                 }
@@ -94,6 +101,50 @@ struct AppLoadingView: View {
                 .background(Color.black.opacity(0.1))
                 .edgesIgnoringSafeArea(.all)
             }
+        }
+    }
+}
+
+struct FontCustomizationView: View {
+    @Environment(\.colorScheme) var colorScheme
+    @State private var showRespringAlert = false
+    
+    var body: some View {
+        List {
+            Section(header: Text("Available Fonts"), footer: Text("Changes the system font (SFUI.ttf). A respring is required to apply the change.")) {
+                ForEach(KRWKFSManager.availableFonts, id: \.name) { font in
+                    Button(action: {
+                        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                        applyFont(font)
+                    }) {
+                        HStack {
+                            Text(font.name)
+                                .foregroundColor(.primary)
+                            Spacer()
+                        }
+                    }
+                }
+            }
+        }
+        .navigationTitle(MILocalizedString("Font Customization"))
+        .alert(isPresented: $showRespringAlert) {
+            Alert(
+                title: Text("Font Applied"),
+                message: Text("The system font has been overwritten. Do you want to respring now to see the changes?"),
+                primaryButton: .default(Text("Respring")) {
+                    Memory.shared.RespringConfirm = true
+                },
+                secondaryButton: .cancel(Text("Later"))
+            )
+        }
+    }
+    
+    private func applyFont(_ font: (name: String, file: String)) {
+        let success = KRWKFSManager.shared.overwriteFile(target: KRWKFSManager.targetFontPath, withBundledFont: font.file)
+        if success {
+            showRespringAlert = true
+        } else {
+            UIApplication.shared.alert(title: "Error", body: "Failed to overwrite the system font. Make sure the exploit is active.", count: 0)
         }
     }
 }
